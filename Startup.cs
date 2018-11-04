@@ -1,4 +1,5 @@
 ﻿using GraphApp.Graph;
+using GraphApp.Repositories;
 using GraphQL.Conventions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,8 @@ namespace GraphApp
             services.AddScoped<IUserContext, UserContext>();
             services.AddScoped<Schema.Query>();
             services.AddScoped<Schema.Mutation>();
+
+            services.AddScoped<ITodoRepository, TodoRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
